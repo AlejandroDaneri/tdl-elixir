@@ -18,6 +18,12 @@ defmodule TdlElixirWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    get "/room", RoomController, :get
+    get "/room/new", RoomController, :new
+    post "/room", RoomController, :create
+    delete "/room", RoomController, :delete
+    patch "/room", RoomController, :delete
   end
 
   # Other scopes may use custom stacks.
