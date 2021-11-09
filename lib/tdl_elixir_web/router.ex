@@ -20,10 +20,12 @@ defmodule TdlElixirWeb.Router do
     get "/", PageController, :index
 
     get "/room", RoomController, :get
+    get "/room/:id", RoomController, :show
     get "/room/new", RoomController, :new
     post "/room", RoomController, :create
-    delete "/room", RoomController, :delete
-    patch "/room", RoomController, :delete
+    put "/room", RoomController, :update
+    get "/room/:id/edit", RoomController, :edit
+    delete "/room/:id", RoomController, :delete
   end
 
   # Other scopes may use custom stacks.

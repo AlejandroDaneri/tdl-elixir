@@ -1,6 +1,7 @@
 defmodule TdlElixir.Room.Event do
   use Ecto.Schema
   import Ecto.Changeset
+  alias TdlElixir.Room.Event
 
   schema "events" do
     field :description, :string
@@ -14,5 +15,9 @@ defmodule TdlElixir.Room.Event do
     event
     |> cast(attrs, [:name, :description])
     |> validate_required([:name])
+  end
+
+  def change_room(%Event{} = room) do
+    Event.changeset(room, %{})
   end
 end
