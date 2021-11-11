@@ -38,11 +38,11 @@ defmodule TdlElixirWeb.RoomController do
 
   def delete(conn, %{"id" => id}) do
     room = Repo.get!(Event, id)
-    {:ok, _room} = TdlElixir.Repo.delete(room)
+    {:ok, _room} = Repo.delete(room)
 
     conn
     |> put_flash(:info, "Room deleted successfully.")
-    |> redirect(to: Routes.room_path(conn, :index))
+    |> redirect(to: Routes.page_path(conn, :index))
   end
 
   def create(conn, %{"event" => room_params}) do
