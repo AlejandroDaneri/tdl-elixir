@@ -20,8 +20,9 @@ defmodule TdlElixirWeb.Router do
     get "/", PageController, :index
 
     get "/room", RoomController, :get
-    get "/room/:id", RoomController, :show
     get "/room/new", RoomController, :new
+    get "/room/:id", RoomController, :show
+
     post "/room", RoomController, :create
     put "/room", RoomController, :update
     get "/room/:id/edit", RoomController, :edit
