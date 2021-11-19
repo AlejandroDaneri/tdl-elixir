@@ -42,18 +42,18 @@
                       <div class="u-container-layout u-similar-container u-container-layout-1">
                         <img src="https://picsum.photos/1200/1500" alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1200" data-image-height="1500">
                         <h5 class="u-text u-text-default u-text-1"><%= room.name %></h5>
-                        <%# <p class="u-text u-text-default u-text-5">
+                        <p class="u-text u-text-default u-text-5">
                           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                           <i class="small material-icons">attach_money</i>
-                          From 70$</p>
+                          From <%= room.price %></p>
                         <p class="u-text u-text-default u-text-5">
                           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                           <i class="small material-icons">event</i>
-                          November 28 2021, 19:00hs</p>
+                          <%= room.date %></p>
                         <p class="u-text u-text-default u-text-5">
                           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                           <i class="small material-icons">location_on</i>
-                          Luna Park</p> %>
+                          <%= room.location %></p>
                         <%= link "Edit event", to: Routes.room_path(@conn, :show, room.id), class: "u-btn u-button-style u-btn-1"%>
                       </div>
                     </div>

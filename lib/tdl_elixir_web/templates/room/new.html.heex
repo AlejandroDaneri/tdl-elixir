@@ -12,6 +12,24 @@
     <%= textarea f, :description, class: "form-control", rows: 5 %>
     <%= error_tag f, :description %>
   </div>
+  
+  <div class="form-group">
+    <%= label f, :date, class: "control-label" %>
+    <%= text_input f, :date, class: "form-control" %>
+    <%= error_tag f, :date %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :location, class: "control-label" %>
+    <%= text_input f, :location, class: "form-control" %>
+    <%= error_tag f, :location %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :price, class: "control-label" %>
+    <%= text_input f, :price, class: "form-control" %>
+    <%= error_tag f, :price %>
+  </div>
 
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
