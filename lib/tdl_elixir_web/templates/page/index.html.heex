@@ -1,27 +1,69 @@
 <div class="row">
   <div class="col-md-3">
-    <h3>
-      Rooms <%= link "+", to: "/room/new", class: "btn btn-success" %>
-    </h3>
+    <%# <h3>
+      Rooms <%= link "+", to: "/room/new", class: "btn btn-success" 
+    </h3> %>
+
+    <%# <section class="u-clearfix u-section-1" id="sec-ea0f">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width-lg u-expanded-width-md u-expanded-width-xl u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <section class="row">
+              <div class="u-container-style u-list-item u-repeater-item u-list-item-1">
+                <div class="u-container-layout u-similar-container u-container-layout-1">
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section> %>
+
+    <div class="col-md-9">
+      <div class="jumbotron">
+        <div class="page-header">
+          <h2>Welcome to Boletek</h2>
+        </div>
+        <div class="page-header">
+          <h2><small><a href="/room/new" class="btn btn-success">Create</a> a new event</small></h2>
+        </div>
+      </div>
+    </div>
 
     <ul class="list-group">
       <%= for room <- @rooms do %>
-        <li class="list-group-item">
-          <%= link room.name, to: Routes.room_path(@conn, :show, room.id) %>
-        </li>
+        <%# <li class="list-group-item"> %>
+          <section class="u-clearfix u-section-1" id="sec-ea0f">
+            <div class="u-clearfix u-sheet u-sheet-1">
+              <div class="u-expanded-width-lg u-expanded-width-md u-expanded-width-xl u-list u-list-1">
+                <div class="u-repeater u-repeater-1">
+                  <section class="row">
+                    <div class="u-container-style u-list-item u-repeater-item u-list-item-1">
+                      <div class="u-container-layout u-similar-container u-container-layout-1">
+                        <img src="https://picsum.photos/1200/1500" alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1200" data-image-height="1500">
+                        <h5 class="u-text u-text-default u-text-1"><%= room.name %></h5>
+                        <%# <p class="u-text u-text-default u-text-5">
+                          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                          <i class="small material-icons">attach_money</i>
+                          From 70$</p>
+                        <p class="u-text u-text-default u-text-5">
+                          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                          <i class="small material-icons">event</i>
+                          November 28 2021, 19:00hs</p>
+                        <p class="u-text u-text-default u-text-5">
+                          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                          <i class="small material-icons">location_on</i>
+                          Luna Park</p> %>
+                        <%= link "Edit event", to: Routes.room_path(@conn, :show, room.id), class: "u-btn u-button-style u-btn-1"%>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </section>
+        <%# </li> %>
       <% end %>
-
     </ul>
-  </div>
-  <div class="col-md-9">
-    <div class="jumbotron">
-      <div class="page-header">
-        <h2>Welcome to Boletek</h2>
-      </div>
-      <div class="page-header">
-        <h2><small>Choose the room on the left to join</small></h2>
-        <h2><small>or <a href="/room/new" class="btn btn-success">Create</a> a new one</small></h2>
-      </div>
-    </div>
   </div>
 </div>
