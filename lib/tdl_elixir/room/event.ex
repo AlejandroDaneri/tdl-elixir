@@ -6,8 +6,10 @@ defmodule TdlElixir.Room.Event do
   schema "events" do
     field :description, :string
     field :name, :string
+    # TODO: change to date
     field :date, :string
     field :location, :string
+    # TODO: change to number
     field :price, :string
 
     timestamps()
@@ -17,6 +19,7 @@ defmodule TdlElixir.Room.Event do
   def changeset(event, attrs) do
     event
     |> cast(attrs, [:name, :description, :date, :location, :price])
+    # TODO: add required fields
     |> validate_required([:name])
   end
 
