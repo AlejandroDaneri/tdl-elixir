@@ -3,6 +3,11 @@ defmodule TdlElixirWeb.RoomController do
   alias TdlElixir.Room.Event
   alias TdlElixir.Repo
 
+  def index(conn, _params) do
+    rooms = TdlElixir.Conversation.list_rooms()
+    render(conn, "index.html", rooms: rooms)
+  end
+
   def show(conn, %{"id" => id}) do
     room = Repo.get!(Event, id)
     render(conn, "show.html", room: room)
@@ -42,7 +47,7 @@ defmodule TdlElixirWeb.RoomController do
 
     conn
     |> put_flash(:info, "Room deleted successfully.")
-    |> redirect(to: Routes.page_path(conn, :index))
+    |> redirect(to: Routes.room_path(conn, :index))
   end
 
   def create(conn, %{"event" => room_params}) do
@@ -53,7 +58,7 @@ defmodule TdlElixirWeb.RoomController do
       {:ok, _room} ->
         conn
         |> put_flash(:info, "Event created successfully.")
-        |> redirect(to: Routes.page_path(conn, :index))
+        |> redirect(to: Routes.room_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

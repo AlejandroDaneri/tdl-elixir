@@ -17,8 +17,7 @@ defmodule TdlElixirWeb.Router do
   scope "/", TdlElixirWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-
+    get "/", RoomController, :index
     get "/room", RoomController, :get
     get "/room/new", RoomController, :new
     get "/room/:id/edit", RoomController, :edit
