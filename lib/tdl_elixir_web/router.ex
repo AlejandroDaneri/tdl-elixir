@@ -14,19 +14,17 @@ defmodule TdlElixirWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", TdlElixirWeb do
+  scope "/admin", TdlElixirWeb do
     pipe_through :browser
 
     get "/", RoomController, :index
-    get "/room", RoomController, :get
-    get "/room/new", RoomController, :new
-    get "/room/:id/edit", RoomController, :edit
-    delete "/room/:id", RoomController, :delete
-    get "/room/:id", RoomController, :show
-    post "/room", RoomController, :create
-    put "/room", RoomController, :update
+    resources "/room", RoomController
+  end
 
-    get "/home", HomeController, :index
+  scope "/", TdlElixirWeb do
+    pipe_through :browser
+
+    get "/", HomeController, :index
     get "/home/:id", HomeController, :show
   end
 
