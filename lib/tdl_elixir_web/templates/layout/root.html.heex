@@ -10,6 +10,12 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
+    <div>
+      <%= link "Log in", to: Routes.pow_session_path(@conn, :new), class: "u-btn u-button-style u-btn-1"%>
+    </div>
+    <div>
+      <%= link "Log out", to: Routes.pow_session_path(@conn, :delete), method: :delete, class: "u-btn u-button-style u-btn-1"%>
+    </div>
     <%= @inner_content %>
   </body>
 </html>
