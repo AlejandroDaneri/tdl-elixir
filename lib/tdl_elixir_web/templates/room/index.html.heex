@@ -1,31 +1,12 @@
 <div class="row">
   <div class="col-md-3">
-    <%# <h3>
-      Rooms <%= link "+", to: "/room/new", class: "btn btn-success" 
-    </h3> %>
-
-    <%# <section class="u-clearfix u-section-1" id="sec-ea0f">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-expanded-width-lg u-expanded-width-md u-expanded-width-xl u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-            <section class="row">
-              <div class="u-container-style u-list-item u-repeater-item u-list-item-1">
-                <div class="u-container-layout u-similar-container u-container-layout-1">
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </section> %>
-
     <div class="col-md-9">
       <div class="jumbotron">
         <div class="page-header">
-          <h2>Welcome to Boletek</h2>
+          <h2>Welcome to <%= link "Boletek", to: Routes.room_path(@conn, :index), class: "btn btn-success" %></h2>
         </div>
         <div class="page-header">
-          <h2><small><a href="/room/new" class="btn btn-success">Create</a> a new event</small></h2>
+          <h2><small><%= link "Create", to: Routes.room_path(@conn, :new), class: "btn btn-success" %> a new event</small></h2>
         </div>
       </div>
     </div>
