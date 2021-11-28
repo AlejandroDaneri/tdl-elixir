@@ -1,5 +1,6 @@
 defmodule TdlElixirWeb.Router do
   use TdlElixirWeb, :router
+  use Pow.Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,8 +15,17 @@ defmodule TdlElixirWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated,
+      error_handler: Pow.Phoenix.PlugErrorHandler
+  end
+
+  pipeline :admin do
+    plug TdlElixirWeb.EnsureRolePlug, :admin
+  end
+
   scope "/admin", TdlElixirWeb do
-    pipe_through :browser
+    pipe_through [:browser, :protected, :admin]
 
     get "/", RoomController, :index
     resources "/room", RoomController
@@ -26,6 +36,12 @@ defmodule TdlElixirWeb.Router do
 
     get "/", HomeController, :index
     get "/home/:id", HomeController, :show
+  end
+
+  scope "/" do
+    pipe_through :browser
+
+    pow_routes()
   end
 
   # Other scopes may use custom stacks.

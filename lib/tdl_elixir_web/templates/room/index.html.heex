@@ -1,3 +1,4 @@
+<%= if TdlElixir.Users.is_admin?(@current_user) do %>
 <div class="row">
   <div class="col-md-3">
     <div class="col-md-9">
@@ -50,3 +51,4 @@
     <% end %>
   </section>
 </ul>
+<% end %>
