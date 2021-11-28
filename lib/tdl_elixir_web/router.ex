@@ -21,7 +21,7 @@ defmodule TdlElixirWeb.Router do
   end
 
   pipeline :admin do
-    plug MyAppWeb.EnsureRolePlug, :admin
+    plug TdlElixirWeb.EnsureRolePlug, :admin
   end
 
   scope "/admin", TdlElixirWeb do

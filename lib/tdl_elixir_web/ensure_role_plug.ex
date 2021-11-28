@@ -1,4 +1,4 @@
-defmodule MyAppWeb.EnsureRolePlug do
+defmodule TdlElixirWeb.EnsureRolePlug do
   @moduledoc """
   This plug ensures that a user has a particular role.
 
@@ -12,7 +12,6 @@ defmodule MyAppWeb.EnsureRolePlug do
   """
   import Plug.Conn, only: [halt: 1]
 
-  alias MyAppWeb.Router.Helpers, as: Routes
   alias Phoenix.Controller
   alias Plug.Conn
   alias Pow.Plug
@@ -41,7 +40,7 @@ defmodule MyAppWeb.EnsureRolePlug do
   defp maybe_halt(_any, conn) do
     conn
     |> Controller.put_flash(:error, "Unauthorized access")
-    |> Controller.redirect(to: Routes.page_path(conn, :index))
+    |> Controller.redirect(to: "/")
     |> halt()
   end
 end
