@@ -36,6 +36,8 @@ defmodule TdlElixirWeb.Router do
 
     get "/", HomeController, :index
     get "/home/:id", HomeController, :show
+
+    post "/ticket", TicketController, :create
   end
 
   scope "/" do
