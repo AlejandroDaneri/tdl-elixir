@@ -5,6 +5,7 @@
 <div><%= @event.price %></div>
 <div><%= @event.date %></div>
 <div><%= @event.location %></div>
+<div><%= @event.availability %></div>
 <div>
   <%= link "Edit", to: Routes.event_path(@conn, :edit, @event.id), class: "btn btn-default" %>
   <%= link "Delete", to: Routes.event_path(@conn, :delete, @event), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
