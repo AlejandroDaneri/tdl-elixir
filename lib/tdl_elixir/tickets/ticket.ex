@@ -8,11 +8,4 @@ defmodule TdlElixir.Tickets.Ticket do
     belongs_to :user, User
     timestamps()
   end
-
-  @doc false
-  def changeset(event, params \\ %{}) do
-    event
-    |> cast(params, [:name, :description, :date, :location, :price, :availability])
-  end
-
 end

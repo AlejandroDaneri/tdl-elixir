@@ -1,2 +1,7 @@
-<h2>Event details</h2>
-<h2>Name: <%= @user.tickets %></h2>
+<h2>Purchases</h2>
+<%= for ticket <- @user.tickets do %>
+  <h2>Event id:</h2>
+  <%= ticket.event_id %>
+  <h2>Ticket id:</h2>
+  <%= ticket.id %>
+<% end %>
