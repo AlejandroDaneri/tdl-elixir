@@ -32,7 +32,7 @@ defmodule TdlElixirWeb.Router do
   end
 
   scope "/", TdlElixirWeb do
-    pipe_through :browser
+    pipe_through [:browser, :protected]
 
     get "/", HomeController, :index
     get "/home/:id", HomeController, :show

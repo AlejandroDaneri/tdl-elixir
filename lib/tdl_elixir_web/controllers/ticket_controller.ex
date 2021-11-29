@@ -3,13 +3,12 @@ defmodule TdlElixirWeb.TicketController do
   alias TdlElixir.Room.Event
   alias TdlElixir.Users.User
   alias TdlElixir.Repo
-  require Logger
 
   def create(conn, %{"id" => event_id}) do
     current_user = Pow.Plug.current_user(conn)
 
     current_user
-    |> Repo.preload(:users)
+    |> Repo.preload(:events)
     |> Ecto.Changeset.change()
     |> Ecto.Changeset.put_assoc(:events, [Repo.get!(Event, event_id)])
     |> Repo.update()
