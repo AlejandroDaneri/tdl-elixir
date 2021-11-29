@@ -1,9 +1,8 @@
 <h2>Event details</h2>
-<h2><%= @room.name %></h2>
+<h2>Name: <%= @event.name %></h2>
 
-<div><%= @room.description %></div>
-<div><%= @room.price %></div>
-<div><%= @room.date %></div>
-<div><%= @room.location %></div>
-<%= link "Book Now", to: Routes.ticket_path(@conn, :create, id: @room), method: :post, class: "u-btn u-button-style u-btn-1"%>
-
+<div>Description: <%= @event.description %></div>
+<div>Cost: <%= @event.price %></div>
+<div>Date: <%= @event.date %></div>
+<div>Location: <%= @event.location %></div>
+<div>Availability: <%= @event.availability %></div>

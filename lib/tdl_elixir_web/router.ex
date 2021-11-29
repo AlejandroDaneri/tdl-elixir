@@ -27,8 +27,8 @@ defmodule TdlElixirWeb.Router do
   scope "/admin", TdlElixirWeb do
     pipe_through [:browser, :protected, :admin]
 
-    get "/", RoomController, :index
-    resources "/room", RoomController
+    get "/", EventController, :index
+    resources "/event", EventController
   end
 
   scope "/", TdlElixirWeb do

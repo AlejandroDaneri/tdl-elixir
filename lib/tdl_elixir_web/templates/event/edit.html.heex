@@ -1,6 +1,6 @@
-<h2>Add new room</h2>
+<h2>Edit Event: <%= @event.name %></h2>
 
-<%= form_for @changeset, Routes.room_path(@conn, :create), fn f -> %>
+<%= form_for @changeset, Routes.event_path(@conn, :update, @event), fn f -> %>
   <div class="form-group">
     <%= label f, :name, class: "control-label" %>
     <%= text_input f, :name, class: "form-control" %>
@@ -10,9 +10,8 @@
   <div class="form-group">
     <%= label f, :description, class: "control-label" %>
     <%= textarea f, :description, class: "form-control", rows: 5 %>
-    <%= error_tag f, :description %>
   </div>
-  
+
   <div class="form-group">
     <%= label f, :date, class: "control-label" %>
     <%= text_input f, :date, class: "form-control" %>
@@ -29,6 +28,12 @@
     <%= label f, :price, class: "control-label" %>
     <%= text_input f, :price, class: "form-control" %>
     <%= error_tag f, :price %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :availability, class: "control-label" %>
+    <%= text_input f, :availability, class: "form-control" %>
+    <%= error_tag f, :availability %>
   </div>
 
   <div class="form-group">
