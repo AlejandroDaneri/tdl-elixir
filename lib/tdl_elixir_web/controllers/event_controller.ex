@@ -2,10 +2,11 @@ defmodule TdlElixirWeb.EventController do
   use TdlElixirWeb, :controller
   alias TdlElixir.Event.Event
   alias TdlElixir.Repo
+  require Enum
 
   def index(conn, _params) do
     events = TdlElixir.Conversation.list_events()
-    render(conn, "index.html", events: events)
+    render(conn, "index.html", events: Enum.sort(events))
   end
 
   def show(conn, %{"id" => id}) do

@@ -40,7 +40,7 @@
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">people</i>
                         <%= event.availability %></p>
-                      <%= link "Book Now", to: Routes.home_path(@conn, :show, event.id), class: "u-btn u-button-style u-btn-1", style: "text-align:center" %>
+                      <%= button "Book Now", to: Routes.ticket_path(@conn, :create, event.id), class: "u-btn u-button-style u-btn-1", style: "text-align:center" %>
                     </div>
                   </div>
                 <%# </section> %>
