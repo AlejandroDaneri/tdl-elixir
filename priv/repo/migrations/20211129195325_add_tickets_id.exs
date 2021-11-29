@@ -9,9 +9,6 @@ defmodule TdlElixir.Repo.Migrations.AddTicketsId do
 
       timestamps()
     end
-
-    create(
-      unique_index(:tickets, [:event_id, :user_id], name: :event_id_user_id_unique_index)
-    )
+    create index(:tickets, [:event_id, :user_id], name: :event_id_user_id_index)
   end
 end
