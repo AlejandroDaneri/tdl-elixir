@@ -6,21 +6,25 @@ defmodule TdlElixir.Room.Event do
   schema "events" do
     field :description, :string
     field :name, :string
-    # TODO: change to date
-    field :date, :string
+    field :date, :utc_datetime
     field :location, :string
-    # TODO: change to number
-    field :price, :string
+    field :price, :float
+    field :availability, :integer
 
     timestamps()
   end
 
   @doc false
   def changeset(event, attrs) do
+    # TODO extract constants to config
     event
-    |> cast(attrs, [:name, :description, :date, :location, :price])
-    # TODO: add required fields
-    |> validate_required([:name])
+    |> cast(attrs, [:name, :description, :date, :location, :price, :availability])
+    |> validate_number(:price, greater_than_or_equal_to: 0)
+    |> validate_number(:availability, greater_than_or_equal_to: 0)
+    |> validate_length(:name, min: 1, max: 100)
+    |> validate_length(:description, max: 100)
+    |> validate_length(:location, min: 2)
+    |> validate_required([:name, :description, :date, :location, :price, :availability])
   end
 
   def change_room(%Event{} = room) do

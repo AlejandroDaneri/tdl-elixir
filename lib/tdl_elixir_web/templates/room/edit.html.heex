@@ -1,6 +1,6 @@
 <h2>Edit Event: <%= @room.name %></h2>
 
-<%= form_for @changeset, Routes.room_path(@conn, :update, id: @room), fn f -> %>
+<%= form_for @changeset, Routes.room_path(@conn, :update, @room), fn f -> %>
   <div class="form-group">
     <%= label f, :name, class: "control-label" %>
     <%= text_input f, :name, class: "form-control" %>
@@ -28,6 +28,12 @@
     <%= label f, :price, class: "control-label" %>
     <%= text_input f, :price, class: "form-control" %>
     <%= error_tag f, :price %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :availability, class: "control-label" %>
+    <%= text_input f, :availability, class: "form-control" %>
+    <%= error_tag f, :availability %>
   </div>
 
   <div class="form-group">

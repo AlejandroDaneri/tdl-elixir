@@ -36,7 +36,11 @@
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">location_on</i>
                         <%= room.location %></p>
-                      <%= link "Book Now", to: Routes.home_path(@conn, :show, room.id), class: "u-btn u-button-style u-btn-1"%>
+                      <p class="u-text u-text-default u-text-5">
+                        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                        <i class="small material-icons">people</i>
+                        <%= room.availability %></p>
+                      <%= link "Book Now", to: Routes.home_path(@conn, :show, room.id), class: "u-btn u-button-style u-btn-1", style: "text-align:center" %>
                     </div>
                   </div>
                 <%# </section> %>
