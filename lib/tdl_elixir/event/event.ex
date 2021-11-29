@@ -3,6 +3,7 @@ defmodule TdlElixir.Event.Event do
   import Ecto.Changeset
   alias TdlElixir.Event.Event
   alias TdlElixir.Tickets.Ticket
+  alias TdlElixir.Repo
 
   schema "events" do
     field :description, :string
@@ -27,6 +28,11 @@ defmodule TdlElixir.Event.Event do
     |> validate_length(:description, max: 100)
     |> validate_length(:location, min: 2)
     |> validate_required([:name, :description, :date, :location, :price, :availability])
+  end
+
+  def reduce_availability_by(event, n) do
+    Event.changeset(event, %{availability: event.availability - n})
+    |> Repo.update()
   end
 
   def change_event(%Event{} = event) do

@@ -41,7 +41,6 @@ defmodule TdlElixirWeb.Router do
 
     get "/", EventController, :index
     resources "/event", EventController
-
   end
 
   scope "/" do

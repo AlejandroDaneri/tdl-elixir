@@ -9,13 +9,8 @@ defmodule TdlElixirWeb.TicketController do
 
   def create(conn, %{"id" => event_id}) do
     user = Pow.Plug.current_user(conn)
-    event = Repo.get!(Event, event_id)
-
-    %Ticket{}
-    |> Ecto.Changeset.change()
-    |> Changeset.put_assoc(:user, user)
-    |> Changeset.put_assoc(:event, event)
-    |> Repo.insert()
+    # TODO receive amount as param
+    Ticket.create(event_id, user, 1)
     |> case do
       {:ok, _} ->
         conn
@@ -23,25 +18,11 @@ defmodule TdlElixirWeb.TicketController do
         |> redirect(to: Routes.home_path(conn, :index))
 
       {:error, _} ->
+        Logger.error("Error buying ticket.")
+
         conn
         |> put_flash(:error, "Error buying ticket.")
-        Logger.error("Error buying ticket")
+        |> redirect(to: Routes.home_path(conn, :index))
     end
-
-    # current_user
-    # |> Repo.preload(:events)
-    # |> Ecto.Changeset.change()
-    # |> Ecto.Changeset.put_assoc(:events, [Repo.get!(Event, event_id)])
-    # |> Repo.update()
-    # |> case do
-    #   {:ok, _} ->
-    #     conn
-    #     |> put_flash(:info, "the ticket was successfully bought.")
-    #     |> redirect(to: Routes.home_path(conn, :index))
-
-    #   {:error, _} ->
-    #     # handle error
-    #     Logger.error("Error buying ticket")
-    # end
   end
 end
