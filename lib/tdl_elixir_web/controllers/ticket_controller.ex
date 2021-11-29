@@ -3,6 +3,7 @@ defmodule TdlElixirWeb.TicketController do
   alias TdlElixir.Room.Event
   alias TdlElixir.Users.User
   alias TdlElixir.Repo
+  require Logger
 
   def create(conn, %{"id" => event_id}) do
     current_user = Pow.Plug.current_user(conn)
