@@ -1,5 +1,6 @@
 defmodule TdlElixir.Tickets.Ticket do
   use Ecto.Schema
+
   alias Ecto.Changeset
   alias TdlElixir.Event.Event
   alias TdlElixir.Users.User
@@ -26,11 +27,10 @@ defmodule TdlElixir.Tickets.Ticket do
     cond do
       event.availability - amount < 0 ->
         {:error, "there are not enough tickets available"}
+
       true ->
         Event.reduce_availability_by(event, amount)
         _create(event, user)
     end
-
-
   end
 end
