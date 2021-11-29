@@ -31,6 +31,9 @@ defmodule TdlElixirWeb.Router do
     get "/home/:id", HomeController, :show
 
     post "/event/ticket/:id", TicketController, :create
+
+    get "/profile", UsersController, :index
+    get "/profile/purchases", UsersController, :show
   end
 
   scope "/admin", TdlElixirWeb do
@@ -38,6 +41,7 @@ defmodule TdlElixirWeb.Router do
 
     get "/", EventController, :index
     resources "/event", EventController
+
   end
 
   scope "/" do

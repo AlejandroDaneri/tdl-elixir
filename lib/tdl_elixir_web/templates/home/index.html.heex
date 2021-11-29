@@ -6,6 +6,12 @@
         <div class="page-header">
           <h2>Welcome to <%= link "Boletek", to: Routes.home_path(@conn, :index), class: "btn btn-success" %></h2>
         </div>
+        <div>
+          <%= link "Profile", to: Routes.users_path(@conn, :index), class: "u-btn u-button-style u-btn-1"%>
+        </div>
+        <div>
+          <%= link "Purchases", to: Routes.users_path(@conn, :show), class: "u-btn u-button-style u-btn-1"%>
+        </div>
       </div>
     </div>
   </div>
