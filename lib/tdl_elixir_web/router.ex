@@ -24,20 +24,20 @@ defmodule TdlElixirWeb.Router do
     plug TdlElixirWeb.EnsureRolePlug, :admin
   end
 
-  scope "/admin", TdlElixirWeb do
-    pipe_through [:browser, :protected, :admin]
-
-    get "/", EventController, :index
-    resources "/event", EventController
-  end
-
   scope "/", TdlElixirWeb do
     pipe_through [:browser, :protected]
 
     get "/", HomeController, :index
     get "/home/:id", HomeController, :show
 
-    post "/ticket", TicketController, :create
+    post "/event/ticket/:id", TicketController, :create
+  end
+
+  scope "/admin", TdlElixirWeb do
+    pipe_through [:browser, :protected, :admin]
+
+    get "/", EventController, :index
+    resources "/event", EventController
   end
 
   scope "/" do
