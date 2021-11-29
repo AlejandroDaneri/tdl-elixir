@@ -13,7 +13,7 @@
 
 <ul class="list-group">
   <section class="row">
-    <%= for room <- @rooms do %>
+    <%= for event <- @events do %>
       <%# <li class="list-group-item"> %>
         <section class="u-clearfix u-section-1" id="sec-ea0f">
           <div class="u-clearfix u-sheet u-sheet-1">
@@ -23,24 +23,24 @@
                   <div class="u-container-style u-list-item u-repeater-item u-list-item-1">
                     <div class="u-container-layout u-similar-container u-container-layout-1">
                       <img src="https://picsum.photos/1200/1500" alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1200" data-image-height="1500">
-                      <h5 class="u-text u-text-default u-text-1"><%= room.name %></h5>
+                      <h5 class="u-text u-text-default u-text-1"><%= event.name %></h5>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">attach_money</i>
-                        From <%= room.price %></p>
+                        From <%= event.price %></p>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">event</i>
-                        <%= room.date %></p>
+                        <%= event.date %></p>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">location_on</i>
-                        <%= room.location %></p>
+                        <%= event.location %></p>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">people</i>
-                        <%= room.availability %></p>
-                      <%= link "Book Now", to: Routes.home_path(@conn, :show, room.id), class: "u-btn u-button-style u-btn-1", style: "text-align:center" %>
+                        <%= event.availability %></p>
+                      <%= link "Book Now", to: Routes.home_path(@conn, :show, event.id), class: "u-btn u-button-style u-btn-1", style: "text-align:center" %>
                     </div>
                   </div>
                 <%# </section> %>

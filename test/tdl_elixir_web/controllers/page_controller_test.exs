@@ -1,4 +1,4 @@
-defmodule TdlElixirWeb.RoomControllerTest do
+defmodule TdlElixirWeb.EventControllerTest do
   use TdlElixirWeb.ConnCase
 
   test "GET /", %{conn: conn} do

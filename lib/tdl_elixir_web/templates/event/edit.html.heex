@@ -1,6 +1,6 @@
-<h2>Edit Event: <%= @room.name %></h2>
+<h2>Edit Event: <%= @event.name %></h2>
 
-<%= form_for @changeset, Routes.room_path(@conn, :update, @room), fn f -> %>
+<%= form_for @changeset, Routes.event_path(@conn, :update, @event), fn f -> %>
   <div class="form-group">
     <%= label f, :name, class: "control-label" %>
     <%= text_input f, :name, class: "form-control" %>

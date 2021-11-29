@@ -1,8 +1,8 @@
 defmodule TdlElixir.Conversation do
   alias TdlElixir.Repo
-  alias TdlElixir.Room.Event
+  alias TdlElixir.Event.Event
 
-  def list_rooms do
+  def list_events do
     Repo.all(Event)
   end
 end
