@@ -12,6 +12,8 @@ defmodule TdlElixir.Room.Event do
     # TODO: change to number
     field :price, :string
 
+    many_to_many :users, TdlElixir.Users.User, join_through: TdlElixir.Tickets.Ticket
+
     timestamps()
   end
 
@@ -21,6 +23,7 @@ defmodule TdlElixir.Room.Event do
     |> cast(attrs, [:name, :description, :date, :location, :price])
     # TODO: add required fields
     |> validate_required([:name])
+    |> Ecto.Changeset.cast_assoc(:user)
   end
 
   def change_room(%Event{} = room) do

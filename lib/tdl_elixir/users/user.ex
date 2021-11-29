@@ -4,6 +4,7 @@ defmodule TdlElixir.Users.User do
 
   schema "users" do
     field :role, :string, null: false, default: "user"
+    many_to_many :events, TdlElixir.Room.Event, join_through: TdlElixir.Tickets.Ticket
 
     pow_user_fields()
 
