@@ -5,3 +5,5 @@
 <div><%= @room.price %></div>
 <div><%= @room.date %></div>
 <div><%= @room.location %></div>
+<%= link "Book Now", to: Routes.ticket_path(@conn, :create,@room.id), method: :post, class: "u-btn u-button-style u-btn-1"%>
+
