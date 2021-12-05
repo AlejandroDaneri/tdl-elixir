@@ -1,7 +1,5 @@
 defmodule TdlElixirWeb.UsersController do
   use TdlElixirWeb, :controller
-  alias TdlElixir.Event.Event
-  alias TdlElixir.Users.User
   alias TdlElixir.Repo
   require Logger
 
@@ -12,10 +10,12 @@ defmodule TdlElixirWeb.UsersController do
 
   def show(conn, _params) do
     current_user = Pow.Plug.current_user(conn)
-    user= current_user
-    |> Repo.preload(tickets: [:event])
+
+    user =
+      current_user
+      |> Repo.preload(tickets: [:event])
+
     Logger.info(user)
     render(conn, "show.html", user: user)
   end
-
 end

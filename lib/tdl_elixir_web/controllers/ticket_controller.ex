@@ -1,10 +1,6 @@
 defmodule TdlElixirWeb.TicketController do
   use TdlElixirWeb, :controller
-  alias TdlElixir.Event.Event
-  alias TdlElixir.Users.User
-  alias TdlElixir.Repo
   alias TdlElixir.Tickets.Ticket
-  alias Ecto.Changeset
   require Logger
 
   def create(conn, %{"id" => event_id}) do
