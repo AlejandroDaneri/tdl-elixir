@@ -4,7 +4,7 @@ defmodule TdlElixir.Users.User do
   alias TdlElixir.Tickets.Ticket
 
   schema "users" do
-    field :role, :string, null: false, default: "user"
+    field :role, :string, null: false, default: "standard"
     # many_to_many :events, TdlElixir.Event.Event, join_through: TdlElixir.Tickets.Ticket
     has_many :tickets, Ticket
 
@@ -17,6 +17,6 @@ defmodule TdlElixir.Users.User do
   def changeset_role(user_or_changeset, attrs) do
     user_or_changeset
     |> Ecto.Changeset.cast(attrs, [:role])
-    |> Ecto.Changeset.validate_inclusion(:role, ~w(user admin))
+    |> Ecto.Changeset.validate_inclusion(:role, ~w(standard admin))
   end
 end
