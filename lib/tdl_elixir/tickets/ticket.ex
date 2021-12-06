@@ -21,6 +21,11 @@ defmodule TdlElixir.Tickets.Ticket do
     |> Repo.insert()
   end
 
+  #def _delete(event, user) do
+  #  %Ticket{}
+  #  # To Do
+  #end
+
   def create(event_id, user, amount) do
     event = Repo.get!(Event, event_id)
 
@@ -33,4 +38,14 @@ defmodule TdlElixir.Tickets.Ticket do
         _create(event, user)
     end
   end
+
+  #def delete(event_id, user, amount) do
+  #  event = Repo.get!(Event, event_id)
+  #
+  #  cond do
+  #    true ->
+  #      Event.increase_availability_by(event, amount)
+  #      _delete(event, user) #hacerlo
+  #  end
+  #end
 end

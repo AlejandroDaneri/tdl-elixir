@@ -30,10 +30,29 @@ defmodule TdlElixir.Event.Event do
     |> validate_required([:name, :description, :date, :location, :price, :availability])
   end
 
-  def reduce_availability_by(event, n) do
-    Event.changeset(event, %{availability: event.availability - n})
-    |> Repo.update()
+  defprotocol PurchaseTickets do
+    def reduce_availability_by(events, n)
   end
+
+  defimpl PurchaseTickets, for: SingularEvent do
+    def reduce_availability_by(event, n) do
+      Event.changeset(event, %{availability: event.availability - n})
+      |> Repo.update()
+    end
+  end
+
+  defimpl PurchaseTickets, for: PackEvents do
+    def reduce_availability_by(events, n) do
+      #for event in events:
+        Event.changeset(event, %{availability: event.availability - n})
+        |> Repo.update()
+    end
+  end
+
+  #def increase_availability_by(event, n) do
+  #  Event.changeset(event, %{availability: event.availability + n})
+  #  |> Repo.update()
+  #end
 
   def change_event(%Event{} = event) do
     Event.changeset(event, %{})
