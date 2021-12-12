@@ -11,7 +11,7 @@ defmodule TdlElixir.Event.Event do
     field :name, :string
     field :date, :utc_datetime
     field :location, :string
-    field :price, :float
+    field :price, :integer
     field :availability, :integer
     has_many :tickets, Ticket
 
