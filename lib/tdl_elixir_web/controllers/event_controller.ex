@@ -5,7 +5,7 @@ defmodule TdlElixirWeb.EventController do
   require Enum
 
   def index(conn, _params) do
-    events = TdlElixir.Conversation.list_events()
+    events = Event.list_events()
     render(conn, "index.html", events: Enum.sort(events))
   end
 
