@@ -4,18 +4,45 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <%= csrf_meta_tag() %>
     <%= live_title_tag assigns[:page_title] || "TdlElixir", suffix: " · Phoenix Framework" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
+
   <body>
-    <div>
-      <%= link "Log in", to: Routes.pow_session_path(@conn, :new), class: "u-btn u-button-style u-btn-1"%>
-    </div>
-    <div>
-      <%= link "Log out", to: Routes.pow_session_path(@conn, :delete), method: :delete, class: "u-btn u-button-style u-btn-1"%>
-    </div>
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block" style="display:none;z-index:3" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+  <p>
+  <%= link "Log in", to: Routes.pow_session_path(@conn, :new), class: "w3-bar-item w3-button w3-xlarge"%>
+  </p>
+  <p>
+  <%= link "Log out", to: Routes.pow_session_path(@conn, :delete), method: :delete, class: "w3-bar-item w3-button w3-xlarge"%>
+  </p>
+</div>
+
+<!-- Page Content -->
+<div class="w3-overlay" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div>
+  <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+</div>
+
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
     <%= @inner_content %>
   </body>
 </html>
