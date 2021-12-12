@@ -1,18 +1,36 @@
+<!DOCTYPE html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=2">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
 <%= if TdlElixir.Users.is_admin?(@current_user) do %>
-<div class="row">
-  <div class="col-md-3">
-    <div class="col-md-9">
-      <div class="jumbotron">
-        <div class="page-header">
-          <h2>Welcome to <%= link "Boletek", to: Routes.event_path(@conn, :index), class: "btn btn-success" %></h2>
-        </div>
-        <div class="page-header">
-          <h2><small><%= link "Create", to: Routes.event_path(@conn, :new), class: "btn btn-success" %> a new event</small></h2>
-        </div>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome to Boletek </h1>
+    <p> Best web to buy all kind of tickets.</p>
       </div>
+      <div class="jumbotron">
+  <div class="row">
+    <div class="col-md-4">
+          <p>
+            <%= link "Home", to: Routes.event_path(@conn, :index) %>
+          </p>
+    </div>
+    <div class="col-md-4">
+          <p>
+            <%= link "Create", to: Routes.event_path(@conn, :new)%>
+          </p>
     </div>
   </div>
+      </div>
 </div>
+
 
 <ul class="list-group">
   <section class="row">
@@ -43,6 +61,8 @@
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">people</i>
                         <%= event.availability %></p>
+                        <p class="u-text u-text-default u-text-5">
+                      </p>
                       <%= link "Edit event", to: Routes.event_path(@conn, :show, event.id), class: "u-btn u-button-style u-btn-1"%>
                     </div>
                   </div>
@@ -56,3 +76,5 @@
   </section>
 </ul>
 <% end %>
+
+</body>
