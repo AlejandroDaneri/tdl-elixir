@@ -51,22 +51,23 @@
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">attach_money</i>
-                        From <%= event.price %></p>
+                        Price: <%= event.price%></p>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">event</i>
-                        <%= event.date %></p>
+                        
+                        Date: <%= Enum.join [event.date.day, event.date.month, event.date.year] , "/"%></p>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">location_on</i>
-                        <%= event.location %></p>
+                        Location: <%= event.location %></p>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">people</i>
-                        <%= event.availability %></p>
+                        Remaining: <%= event.availability %></p>
                       <p class="u-text u-text-default u-text-5">
                       </p>
-                      <%= button "Book Now", to: Routes.ticket_path(@conn, :create, event.id), class: "u-btn u-button-style u-btn-1", style: "text-align:center" %>
+                      <%= button "Book Now", to: Routes.ticket_path(@conn, :create, event.id), class: "btn btn-primary", style: "text-align:center" %>
                     </div>
                   </div>
                 <%# </section> %>
