@@ -4,6 +4,7 @@ defmodule TdlElixir.Event.Event do
   alias TdlElixir.Event.Event
   alias TdlElixir.Tickets.Ticket
   alias TdlElixir.Repo
+  import Ecto.Query
 
   schema "events" do
     field :description, :string
@@ -38,7 +39,16 @@ defmodule TdlElixir.Event.Event do
     Event.changeset(event, %{})
   end
 
-  def list_events do
-    Repo.all(Event)
+  def list_events(params \\ %{}) do
+    name = get_in(params, ["query"])
+
+    Event
+    |> Event.search_by_name(name)
+    |> Repo.all()
+  end
+
+  def search_by_name(query, name) do
+    from event in query,
+      where: ilike(event.name, ^"%#{name}%")
   end
 end

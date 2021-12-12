@@ -34,6 +34,16 @@
       </div>
 </div>
 
+<div class="container">
+  <%= form_for @conn, Routes.home_path(@conn, :index), [method: :get, name: :search, class: "form-inline"], fn f -> %>
+    <div class="form-group col-md-10 " >
+      <%= text_input f, :query , placeholder: "Enter event name", class: "control-label" %>
+    </div>
+    <div class="form-group col-md-2 ">
+      <%= submit "Search", class: "btn btn-primary mb-2"%>
+    </div>
+  <% end %>
+</div>
 
 <ul class="list-group">
   <section class="row">

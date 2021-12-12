@@ -9,8 +9,8 @@ defmodule TdlElixirWeb.HomeController do
     render(conn, "show.html", event: event)
   end
 
-  def index(conn, _params) do
-    events = Event.list_events()
+  def index(conn, params) do
+    events = Event.list_events(params)
     render(conn, "index.html", events: Enum.sort(events))
   end
 end
