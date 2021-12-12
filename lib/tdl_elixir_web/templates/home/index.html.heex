@@ -1,21 +1,40 @@
-<div class="row">
-  <div class="col-md-3">
+<!DOCTYPE html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=2">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-    <div class="col-md-9">
-      <div class="jumbotron">
-        <div class="page-header">
-          <h2>Welcome to <%= link "Boletek", to: Routes.home_path(@conn, :index), class: "btn btn-success" %></h2>
-        </div>
-        <div>
-          <%= link "Profile", to: Routes.users_path(@conn, :index), class: "u-btn u-button-style u-btn-1"%>
-        </div>
-        <div>
-          <%= link "Purchases", to: Routes.users_path(@conn, :show), class: "u-btn u-button-style u-btn-1"%>
-        </div>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome to Boletek </h1>
+    <p> Best web to buy all kind of tickets.</p>
       </div>
+      <div class="jumbotron">
+  <div class="row">
+    <div class="col-md-4">
+          <p>
+            <%= link "Home", to: Routes.home_path(@conn, :index) %>
+          </p>
+    </div>
+    <div class="col-md-4">
+          <p>
+            <%= link "Profile", to: Routes.users_path(@conn, :index)%>
+          </p>
+    </div>
+    <div class="col-md-4">
+          <p>
+            <%= link "Purchases", to: Routes.users_path(@conn, :show) %>
+          </p>
     </div>
   </div>
+      </div>
 </div>
+
 
 <ul class="list-group">
   <section class="row">
@@ -46,6 +65,8 @@
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">people</i>
                         <%= event.availability %></p>
+                      <p class="u-text u-text-default u-text-5">
+                      </p>
                       <%= button "Book Now", to: Routes.ticket_path(@conn, :create, event.id), class: "u-btn u-button-style u-btn-1", style: "text-align:center" %>
                     </div>
                   </div>
@@ -58,3 +79,4 @@
     <% end %>
   </section>
 </ul>
+</body>
