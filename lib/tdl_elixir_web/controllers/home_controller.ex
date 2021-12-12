@@ -10,7 +10,7 @@ defmodule TdlElixirWeb.HomeController do
   end
 
   def index(conn, _params) do
-    events = TdlElixir.Conversation.list_events()
+    events = Event.list_events()
     render(conn, "index.html", events: Enum.sort(events))
   end
 end

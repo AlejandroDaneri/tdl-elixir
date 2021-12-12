@@ -19,7 +19,6 @@ defmodule TdlElixir.Event.Event do
 
   @doc false
   def changeset(event, params \\ %{}) do
-    # TODO extract constants to config
     event
     |> cast(params, [:name, :description, :date, :location, :price, :availability])
     |> validate_number(:price, greater_than_or_equal_to: 0)
@@ -37,5 +36,9 @@ defmodule TdlElixir.Event.Event do
 
   def change_event(%Event{} = event) do
     Event.changeset(event, %{})
+  end
+
+  def list_events do
+    Repo.all(Event)
   end
 end
