@@ -10,28 +10,38 @@
 
 <div class="container">
   <div class="jumbotron">
+  <center>
     <h1>Welcome to Boletek </h1>
+  </center>
+  <center>
     <p> Best web to buy all kind of tickets.</p>
+  </center>
+  </div>
+  <div class="jumbotron"  style="background:#B8B8B8 ">
+    <div class="row">
+      <div class="col-md-4">
+        <center>
+            <p>
+              <%= link "Home", to: Routes.home_path(@conn, :index) %>
+            </p>
+        </center>
       </div>
-      <div class="jumbotron">
-  <div class="row">
-    <div class="col-md-4">
+      <div class="col-md-4">
+        <center>
           <p>
-            <%= link "Home", to: Routes.home_path(@conn, :index) %>
+              <%= link "Profile", to: Routes.users_path(@conn, :index)%>
           </p>
-    </div>
-    <div class="col-md-4">
-          <p>
-            <%= link "Profile", to: Routes.users_path(@conn, :index)%>
-          </p>
-    </div>
-    <div class="col-md-4">
+        </center>
+      </div>
+      <div class="col-md-4">
+        <center>
           <p>
             <%= link "Purchases", to: Routes.users_path(@conn, :show) %>
           </p>
+        </center>
+      </div>
     </div>
   </div>
-      </div>
 </div>
 
 
