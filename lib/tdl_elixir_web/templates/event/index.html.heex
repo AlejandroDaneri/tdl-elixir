@@ -21,17 +21,10 @@
   </div>
   <div class="jumbotron"  style="background:#B8B8B8 ">
     <div class="row">
-      <div class="col-md-6">
-       <center>
-            <p>
-              <%= link "Home", to: Routes.event_path(@conn, :index) %>
-            </p>
-      </center>
-      </div>
-      <div class="col-md-6">
+      <div class="col-md-12">
         <center>
             <p>
-              <%= link "Create", to: Routes.event_path(@conn, :new)%>
+              <%= link "Create new event", to: Routes.event_path(@conn, :new)%>
             </p>
           </center>
       </div>

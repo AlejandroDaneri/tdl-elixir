@@ -1,4 +1,7 @@
-<h2>Add new event</h2>
+<p>
+<%= link "Back to Home", to: Routes.event_path(@conn, :index)%>
+</p>
+<h2>Create new event</h2>
 
 <%= form_for @changeset, Routes.event_path(@conn, :create), fn f -> %>
   <div class="form-group">
