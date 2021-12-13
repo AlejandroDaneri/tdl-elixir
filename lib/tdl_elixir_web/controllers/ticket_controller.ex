@@ -14,8 +14,6 @@ defmodule TdlElixirWeb.TicketController do
         |> redirect(to: Routes.home_path(conn, :index))
 
       {:error, _} ->
-        Logger.error("Error buying ticket.")
-
         conn
         |> put_flash(:error, "Error buying ticket.")
         |> redirect(to: Routes.home_path(conn, :index))
