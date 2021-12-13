@@ -15,7 +15,6 @@ defmodule TdlElixirWeb.UsersController do
       current_user
       |> Repo.preload(tickets: [:event])
 
-    Logger.info(user)
     render(conn, "show.html", user: user)
   end
 end

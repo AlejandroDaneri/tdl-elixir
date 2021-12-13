@@ -1,4 +1,7 @@
-<h2>Add new event</h2>
+<p>
+<%= link "Back to Home", to: Routes.event_path(@conn, :index)%>
+</p>
+<h2>Create new event</h2>
 
 <%= form_for @changeset, Routes.event_path(@conn, :create), fn f -> %>
   <div class="form-group">
@@ -14,8 +17,8 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :date, class: "control-label" %> (example: 2019-09-09 06:00:00)
-    <%= text_input f, :date, class: "form-control" %>
+    <%= label f, :date, class: "control-label" %> 
+    <%= text_input f, :date, class: "form-control" , placeholder: "Example: 2019-09-09 06:00:00"%>
     <%= error_tag f, :date %>
   </div>
 
@@ -38,6 +41,6 @@
   </div>
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit "Submit", class: "btn btn-primary", style: "text-align:center" %>
   </div>
 <% end %>

@@ -12,23 +12,24 @@
 <%= if TdlElixir.Users.is_admin?(@current_user) do %>
 <div class="container">
   <div class="jumbotron">
-    <h1>Welcome to Boletek </h1>
-    <p> Best web to buy all kind of tickets.</p>
+    <center>
+      <h1>Welcome to Boletek </h1>
+    </center>
+    <center>
+      <p> Best web to buy all kind of tickets.</p>
+    </center>
+  </div>
+  <div class="jumbotron"  style="background:#B8B8B8 ">
+    <div class="row">
+      <div class="col-md-12">
+        <center>
+            <p>
+              <%= link "Create new event", to: Routes.event_path(@conn, :new)%>
+            </p>
+          </center>
       </div>
-      <div class="jumbotron">
-  <div class="row">
-    <div class="col-md-4">
-          <p>
-            <%= link "Home", to: Routes.event_path(@conn, :index) %>
-          </p>
-    </div>
-    <div class="col-md-4">
-          <p>
-            <%= link "Create", to: Routes.event_path(@conn, :new)%>
-          </p>
     </div>
   </div>
-      </div>
 </div>
 
 
@@ -43,24 +44,24 @@
                 <%# <section class="row"> %>
                   <div class="u-container-style u-list-item u-repeater-item u-list-item-1">
                     <div class="u-container-layout u-similar-container u-container-layout-1">
-                      <img src="https://picsum.photos/1200/1500" alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1200" data-image-height="1500">
+                      <img src="https://picsum.photos/id/158/1200/1500" alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1200" data-image-height="1500">
                       <h5 class="u-text u-text-default u-text-1"><%= event.name %></h5>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">attach_money</i>
-                        From <%= event.price %></p>
+                        Price: <%= event.price%></p>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">event</i>
-                        <%= event.date %></p>
+                        Date: <%= Enum.join [event.date.day, event.date.month, event.date.year] , "/"%></p>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">location_on</i>
-                        <%= event.location %></p>
+                        Location: <%= event.location %></p>
                       <p class="u-text u-text-default u-text-5">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                         <i class="small material-icons">people</i>
-                        <%= event.availability %></p>
+                        Remaining: <%= event.availability %></p>
                         <p class="u-text u-text-default u-text-5">
                       </p>
                       <%= link "Edit event", to: Routes.event_path(@conn, :show, event.id), class: "u-btn u-button-style u-btn-1"%>

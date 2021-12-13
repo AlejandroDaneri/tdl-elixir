@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "TdlElixir", suffix: " · Phoenix Framework" %>
+    <%= live_title_tag assigns[:page_title] || "Boletek" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
@@ -16,12 +16,11 @@
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block" style="display:none;z-index:3" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-  <p>
+
   <%= link "Log in", to: Routes.pow_session_path(@conn, :new), class: "w3-bar-item w3-button w3-xlarge"%>
-  </p>
-  <p>
+
   <%= link "Log out", to: Routes.pow_session_path(@conn, :delete), method: :delete, class: "w3-bar-item w3-button w3-xlarge"%>
-  </p>
+
 </div>
 
 <!-- Page Content -->

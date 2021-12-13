@@ -1,5 +1,32 @@
+<p>
+<%= link "Back to Home", to: Routes.home_path(@conn, :index)%>
+</p>
 <h2>Purchases</h2>
 <%= for ticket <- @user.tickets do %>
-  <h2>Event name:</h2>
-  <%= ticket.event.name %>
+ <section class="u-clearfix u-section-1" id="sec-ea0f">
+            <%# <section class="row"> %>
+                  <div class="u-container-style u-list-item u-repeater-item u-list-item-1">
+                    <div class="u-container-layout u-similar-container u-container-layout-1">
+                      <h5 class="u-text u-text-default u-text-1"><%= ticket.event.name %></h5>
+                      <p class="u-text u-text-default u-text-5">
+                        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                        <i class="small material-icons">attach_money</i>
+                        Price: <%= ticket.event.price%></p>
+                      <p class="u-text u-text-default u-text-5">
+                        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                        <i class="small material-icons">event</i>
+                        Date: <%= Enum.join [ticket.event.date.day, ticket.event.date.month, ticket.event.date.year] , "/"%></p>
+                      <p class="u-text u-text-default u-text-5">
+                        <i class="small material-icons">note</i>
+                        Description: <%= ticket.event.description %></p>
+                      <p class="u-text u-text-default u-text-5">
+                        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                        <i class="small material-icons">location_on</i>
+                        Location: <%= ticket.event.location %></p>
+  
+                    </div>
+                  </div>
+                <%# </section> %>
+
+        </section>
 <% end %>
